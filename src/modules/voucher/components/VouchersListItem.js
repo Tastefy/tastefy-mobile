@@ -10,6 +10,7 @@ const Wrapper = styled(View)`
 const VouchersListItem = ({
   voucher,
   onPressAnswerSurvey,
+  onPressPresentVoucher,
 }) => (
   <Wrapper>
     <Text>ObtainedAt: {moment(voucher.obtainedAt).format('DD/MM/YYYY')}</Text>
@@ -19,6 +20,12 @@ const VouchersListItem = ({
       <Button
         title="Responder"
         onPress={() => onPressAnswerSurvey(voucher.id, voucher.survey.id)}
+      />
+    }
+    {voucher.status === 'AVAILABLE' &&
+      <Button
+        title="Utilizar"
+        onPress={() => onPressPresentVoucher(voucher.id)}
       />
     }
   </Wrapper>
@@ -37,6 +44,7 @@ VouchersListItem.propTypes = {
     }),
   }),
   onPressAnswerSurvey: func.isRequired,
+  onPressPresentVoucher: func.isRequired,
 }
 VouchersListItem.defaultProps = {
   voucher: null,

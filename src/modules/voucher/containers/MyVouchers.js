@@ -3,7 +3,7 @@ import { compose, withProps } from 'recompose'
 import VouchersList from '../components/VouchersList'
 import { userVouchersByUserId } from '../queries'
 import withCurrentUser from '../../auth/hocs/with-current-user'
-import { loadAnswerSurvey } from '../../../navigation'
+import { loadAnswerSurvey, loadPresentVoucher } from '../../../navigation'
 import withLoading from '../../common/hocs/with-loading'
 
 export default compose(
@@ -23,5 +23,6 @@ export default compose(
   }),
   withProps({
     answerSurvey: (voucherId, surveyId) => loadAnswerSurvey({ voucherId, surveyId }),
+    presentVoucher: voucherId => loadPresentVoucher({ voucherId }),
   }),
 )(VouchersList)

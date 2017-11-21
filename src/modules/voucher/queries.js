@@ -17,7 +17,16 @@ export const voucherByCode = gql`
     }
   }
 `
-
+export const voucherById = gql`
+  query voucherById($voucherId:ID!) {
+    viewer {
+      Voucher(id:$voucherId) {
+        id
+        code
+      }
+    }
+  }
+`
 
 export const userVouchersByUserId = gql`
   query userVouchers($userId:ID!){

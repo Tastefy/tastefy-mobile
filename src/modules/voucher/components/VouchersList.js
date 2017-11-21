@@ -10,6 +10,7 @@ const VouchersList = ({
   refetch,
   loading,
   answerSurvey,
+  presentVoucher,
 }) => (
   <FlatList
     data={vouchers}
@@ -17,6 +18,7 @@ const VouchersList = ({
       <VouchersListItem
         voucher={item}
         onPressAnswerSurvey={answerSurvey}
+        onPressPresentVoucher={presentVoucher}
       />
     )}
     keyExtractor={item => item.id}
@@ -38,6 +40,7 @@ VouchersList.propTypes = {
   refetch: func.isRequired,
   loading: bool.isRequired,
   answerSurvey: func.isRequired,
+  presentVoucher: func.isRequired,
 }
 
 VouchersList.defaultProps = {

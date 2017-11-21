@@ -13,6 +13,7 @@ import {
   SETTINGS_TAB_SCREEN,
   CLAIM_VOUCHER_SCREEN,
   ANSWER_SURVEY_SCREEN,
+  PRESENT_VOUCHER_SCREEN,
 } from './navigation'
 
 import AuthScreen from './screens/Auth'
@@ -24,6 +25,7 @@ import ScanQRCodeScreen from './screens/ScanQRCode'
 import ProfileScreen from './screens/Profile'
 import ClaimVoucherScreen from './screens/ClaimVoucher'
 import AnswerSurveyScreen from './screens/AnswerSurvey'
+import PresentVoucherScreen from './screens/PresentVoucher'
 
 const withProvider = (Component, store, client) => class extends React.Component {
   render() {
@@ -52,4 +54,5 @@ export default ({ reduxStore, apolloClient }) => {
   registerWithStores(SETTINGS_TAB_SCREEN, SettingsScreen)
   registerWithStores(CLAIM_VOUCHER_SCREEN, ClaimVoucherScreen)
   registerWithStores(ANSWER_SURVEY_SCREEN, AnswerSurveyScreen)
+  registerWithStores(PRESENT_VOUCHER_SCREEN, PresentVoucherScreen)
 };

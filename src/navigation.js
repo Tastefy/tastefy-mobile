@@ -15,6 +15,7 @@ export const PROFILE_SCREEN = `${PKG_NAME}.Profile`
 export const SETTINGS_TAB_SCREEN = `${PKG_NAME}.Settings`
 export const CLAIM_VOUCHER_SCREEN = `${PKG_NAME}.ClaimVoucher`
 export const ANSWER_SURVEY_SCREEN = `${PKG_NAME}.AnswerSurvey`
+export const PRESENT_VOUCHER_SCREEN = `${PKG_NAME}.PresentVoucher`
 
 export const dismissModal = () => Navigation.dismissModal()
 
@@ -86,5 +87,11 @@ export const loadClaimVoucher = ({ code }) => Navigation.showModal({
 export const loadAnswerSurvey = ({ voucherId, surveyId }) => Navigation.showModal({
   screen: ANSWER_SURVEY_SCREEN,
   passProps: { voucherId, surveyId },
+  animationType: 'slide-up',
+})
+
+export const loadPresentVoucher = ({ voucherId }) => Navigation.showModal({
+  screen: PRESENT_VOUCHER_SCREEN,
+  passProps: { voucherId },
   animationType: 'slide-up',
 })
