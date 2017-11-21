@@ -35,3 +35,18 @@ export const claimVoucher = gql`
     }
   }
 `
+
+export const makeVoucherAvailable = gql`
+  mutation makeVoucherAvailable($clientMutationId:String!, $voucherId: ID!) {
+    updateVoucher(input: {
+      clientMutationId: $clientMutationId,
+      id: $voucherId,
+      status: AVAILABLE
+    }) {
+      vocuher {
+        id
+        status
+      }
+    }
+  }
+`

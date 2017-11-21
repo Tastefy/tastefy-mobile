@@ -41,14 +41,14 @@ Step.defaultProps = {
 const Survey = ({
   loading,
   survey,
+  handleSubmit,
 }) => (
   <View style={{ flex: 1 }}>
     <Text>{survey.name}</Text>
     <StepForm
-      x={console.log(survey.questions)}
       steps={survey.questions}
       renderStep={Step}
-      onFinish={() => {}}
+      onFinish={handleSubmit}
     />
   </View>
 )
@@ -62,6 +62,7 @@ Survey.propTypes = {
     })),
   }),
   loading: bool.isRequired,
+  handleSubmit: func.isRequired,
 }
 Survey.defaultProps = {
   survey: null,
