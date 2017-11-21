@@ -4,9 +4,11 @@ import VouchersList from '../components/VouchersList'
 import { userVouchersByUserId } from '../queries'
 import withCurrentUser from '../../auth/hocs/with-current-user'
 import { loadAnswerSurvey } from '../../../navigation'
+import withLoading from '../../common/hocs/with-loading'
 
 export default compose(
   withCurrentUser,
+  withLoading(props => props.loading),
   graphql(userVouchersByUserId, {
     options: ({ user }) => ({
       variables: {

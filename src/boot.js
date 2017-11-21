@@ -1,7 +1,7 @@
 import { Image, StatusBar } from 'react-native'
 import createApolloClient from 'storm-system-components/src/apollo'
 import createReduxStore from 'storm-system-components/src/redux-store'
-import { loadWaypoint } from './navigation'
+import { loadMainScreen } from './navigation'
 import rootReducer from './root-reducer'
 import registerScreens from './register-screens';
 import { Style } from './resources/style'
@@ -26,4 +26,4 @@ const reduxStore = createReduxStore({}, rootReducer)
 
 
 registerScreens({ reduxStore, apolloClient })
-loadWaypoint();
+loadMainScreen();

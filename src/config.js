@@ -1,3 +1,3 @@
 export default {
-  allowGuest: true
+  allowGuest: false,
 }
