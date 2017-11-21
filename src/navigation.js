@@ -9,9 +9,14 @@ export const AUTH_SCREEN = `${PKG_NAME}.Auth`
 export const ONBOARDING_SCREEN = `${PKG_NAME}.Onboarding`
 export const MAIN_SCREEN = `${PKG_NAME}.Main`
 export const WAYPOINT_SCREEN = `${PKG_NAME}.Waypoint`
-export const FIRST_TAB_SCREEN = `${PKG_NAME}.FirstTab`
-export const SECOND_TAB_SCREEN = `${PKG_NAME}.SecondTab`
-export const SETTINGS_TAB_SCREEN = `${PKG_NAME}.SettingsTabScreen`
+export const VOUCHERS_SCREEN = `${PKG_NAME}.Vouchers`
+export const SCAN_QRCODE_SCREEN = `${PKG_NAME}.ScanQRCode`
+export const PROFILE_SCREEN = `${PKG_NAME}.Profile`
+export const SETTINGS_TAB_SCREEN = `${PKG_NAME}.Settings`
+export const CLAIM_VOUCHER_SCREEN = `${PKG_NAME}.ClaimVoucher`
+export const ANSWER_SURVEY_SCREEN = `${PKG_NAME}.AnswerSurvey`
+
+export const dismissModal = () => Navigation.dismissModal()
 
 export const loadMainScreen = async () => {
   const icons = await prepareIcons(); //  IMPROVE!
@@ -19,19 +24,19 @@ export const loadMainScreen = async () => {
     tabs: [
       {
         label: 'Vouchers',
-        screen: FIRST_TAB_SCREEN,
+        screen: VOUCHERS_SCREEN,
         title: 'Vouchers',
         icon: icons.award,
       },
       {
         label: 'Escanear',
-        screen: SECOND_TAB_SCREEN,
+        screen: SCAN_QRCODE_SCREEN,
         title: 'Escanear Código',
         icon: icons.camera,
       },
       {
         label: 'Perfil',
-        screen: SECOND_TAB_SCREEN,
+        screen: PROFILE_SCREEN,
         title: 'Perfil',
         icon: icons.user,
       },
@@ -71,3 +76,15 @@ export const loadWaypoint = () => Navigation.startSingleScreenApp({
   },
   animationType: 'slide-down', // optional, add transition animation to root change: 'none', 'slide-down', 'fade'
 });
+
+export const loadClaimVoucher = ({ code }) => Navigation.showModal({
+  screen: CLAIM_VOUCHER_SCREEN,
+  passProps: { code }, // simple serializable object that will pass as props to the modal (optional)
+  animationType: 'slide-up', // 'none' / 'slide-up' , appear animation for the modal (optional, default 'slide-up')
+});
+
+export const loadAnswerSurvey = ({ surveyId }) => Navigation.showModal({
+  screen: ANSWER_SURVEY_SCREEN,
+  passProps: { surveyId },
+  animationType: 'slide-up',
+})

@@ -13,8 +13,8 @@ const PRODUCTION_URL = 'https://api.graph.cool/relay/v1/cj9izddz55mvr0124usquqjl
 const apolloClient = createApolloClient({
   config: {
     apollo: {
-      developmentUrl: PRODUCTION_URL,
-      productionUrl: PRODUCTION_URL,
+      developmentUrl: DEVELOPMENT_URL,
+      productionUrl: DEVELOPMENT_URL,
     },
   },
 })

@@ -1,11 +1,13 @@
 import React from 'react';
-import { Text } from 'react-native'
+import { Text, Button } from 'react-native'
 import ScreenWrapper from 'storm-common/src/components/ScreenWrapper'
 import { Style } from '../resources/style'
+import { dismissModal } from '../navigation'
+import ClaimVoucher from '../modules/voucher/containers/ClaimVoucher'
 
-class Settings extends React.Component {
+class ClaimVoucherScreen extends React.Component {
   static navigatorStyle = {
-    navBarHidden: false,
+    navBarHidden: true,
     navBarTextColor: Style.navBarTextColor,
     navBarBackgroundColor: Style.navBarBackgroundColor,
   }
@@ -13,10 +15,16 @@ class Settings extends React.Component {
   render() {
     return (
       <ScreenWrapper style={{ alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Settings!</Text>
+        <Button
+          onPress={dismissModal}
+          title="X"
+        />
+        <ClaimVoucher
+          code={this.props.code}
+        />
       </ScreenWrapper>
     )
   }
 }
 
-export default Settings
+export default ClaimVoucherScreen
