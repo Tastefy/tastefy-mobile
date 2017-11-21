@@ -15,7 +15,7 @@ class AnswerSurveyScreen extends React.Component {
   render() {
     return (
       <ModalWrapper onPressClose={dismissModal}>
-        <AnswerSurvey surveyId={this.props.surveyId} />
+        <AnswerSurvey surveyId={this.props.surveyId} voucherId={this.props.voucherId} />
       </ModalWrapper>
     )
   }

@@ -43,7 +43,7 @@ export const makeVoucherAvailable = gql`
       id: $voucherId,
       status: AVAILABLE
     }) {
-      vocuher {
+      voucher {
         id
         status
       }

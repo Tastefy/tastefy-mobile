@@ -83,8 +83,8 @@ export const loadClaimVoucher = ({ code }) => Navigation.showModal({
   animationType: 'slide-up', // 'none' / 'slide-up' , appear animation for the modal (optional, default 'slide-up')
 });
 
-export const loadAnswerSurvey = ({ surveyId }) => Navigation.showModal({
+export const loadAnswerSurvey = ({ voucherId, surveyId }) => Navigation.showModal({
   screen: ANSWER_SURVEY_SCREEN,
-  passProps: { surveyId },
+  passProps: { voucherId, surveyId },
   animationType: 'slide-up',
 })

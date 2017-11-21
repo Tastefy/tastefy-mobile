@@ -20,6 +20,6 @@ export default compose(
     }),
   }),
   withProps({
-    answerSurvey: surveyId => loadAnswerSurvey({ surveyId }),
+    answerSurvey: (voucherId, surveyId) => loadAnswerSurvey({ voucherId, surveyId }),
   }),
 )(VouchersList)

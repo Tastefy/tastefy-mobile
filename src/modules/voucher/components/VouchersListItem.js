@@ -18,7 +18,7 @@ const VouchersListItem = ({
     {voucher.status === 'CLAIMED' &&
       <Button
         title="Responder"
-        onPress={() => onPressAnswerSurvey(voucher.survey.id)}
+        onPress={() => onPressAnswerSurvey(voucher.id, voucher.survey.id)}
       />
     }
   </Wrapper>
