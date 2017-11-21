@@ -1,5 +1,8 @@
+import React from 'react'
 import { Navigation } from 'react-native-navigation';
 import { ApolloProvider } from 'react-apollo';
+import { Provider } from 'react-redux'
+
 import {
   AUTH_SCREEN,
   ONBOARDING_SCREEN,
@@ -22,9 +25,23 @@ import ProfileScreen from './screens/Profile'
 import ClaimVoucherScreen from './screens/ClaimVoucher'
 import AnswerSurveyScreen from './screens/AnswerSurvey'
 
+const withProvider = (Component, store, client) => class extends React.Component {
+  render() {
+    return (
+      <ApolloProvider store={store} client={client}>
+        <Component {...this.props} />
+      </ApolloProvider>
+    )
+  }
+  }
+
 export default ({ reduxStore, apolloClient }) => {
   const registerWithStores = (name, clazz) => {
-    Navigation.registerComponent(name, () => clazz, reduxStore, ApolloProvider, { client: apolloClient });
+    Navigation.registerComponent(name, () => clazz, reduxStore, ({ children, ...props }) => (
+      <Provider {...props}>
+        <ApolloProvider client={apolloClient}>{children}</ApolloProvider>
+      </Provider>
+    ));
   }
   registerWithStores(ONBOARDING_SCREEN, OnboardingScreen)
   registerWithStores(AUTH_SCREEN, AuthScreen)

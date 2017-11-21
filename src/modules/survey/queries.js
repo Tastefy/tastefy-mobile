@@ -8,7 +8,9 @@ export const surveyById = gql`
         questions {
           edges {
             node {
+              id
               title
+              type
               config
             }
           }
